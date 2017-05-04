@@ -36,7 +36,6 @@
     "url": "git://github.com/kieran/coffee-react.git"
   },
   "dependencies": {
-    "coffee-react-jstransform": "^1.0.0",
     "coffee-react-transform": "kieran/coffee-react-transform",
     "coffee-script": "^1.12.5",
     "mkdirp": "^0.5.0"

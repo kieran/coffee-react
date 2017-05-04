@@ -7,8 +7,6 @@ helpers = require './helpers'
 
 CoffeeScript = require 'coffee-script/lib/coffee-script/coffee-script'
 
-jsSyntaxTransform = require 'coffee-react-jstransform'
-
 unless CoffeeScript._cjsx
 
   CoffeeScript._cjsx = yes
@@ -22,16 +20,7 @@ unless CoffeeScript._cjsx
 
   CoffeeScript.compile = (code, options = {}) ->
     input = transform(code, options)
-
-    output = CoffeeScript._csCompile input, options
-
-    return output if options.noJSTransforms
-
-    if typeof output == 'string'
-      jsSyntaxTransform(output)
-    else
-      output.js = jsSyntaxTransform(output.js)
-      output
+    CoffeeScript._csCompile input, options
 
   CoffeeScript._compileFile = (filename, sourceMap = no) ->
     raw = fs.readFileSync filename, 'utf8'
